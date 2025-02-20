@@ -4,6 +4,7 @@ import os
 import re
 
 app = Flask(__name__)
+
 app.secret_key = "dlrjsduwnstoddlfdmfdnlgksdnpqtkdslxm"  # 세션 암호화를 위한 키
 app.config["SESSION_PERMANENT"] = False
 
@@ -81,5 +82,8 @@ def logout():
     session.pop('authenticated', None)  # 로그아웃 시 세션에서 상태 제거
     return render_template("main.html")
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
+
+# def handler(event, context):
+#     return app(event, context)
