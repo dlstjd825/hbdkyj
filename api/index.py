@@ -20,7 +20,6 @@ def clear_session_on_restart():
     if not session_initialized:
         session.clear()  # 모든 세션 데이터 초기화
         session_initialized = True  # 한 번 실행 후 다시 실행되지 않게 함
-        print("🔄 서버 재시작됨: 세션 초기화 완료")
 
 @app.route('/')
 def main():
