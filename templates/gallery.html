@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리</title>
+    <link rel="stylesheet" href="/static/css/gallery.css">
+</head>
+<body>
+    <h1>권여준의 멋진 순간들</h1>
+    <div class="photo-gallery">
+        {% for photo in photos %}
+        <div class="photo">
+            <img src="{{ photo.src }}" alt="Photo">
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+    </div>
+    <a href="/" class="nav-btn">메인 페이지로 돌아가기</a>
+    <a href="/rolling_paper" class="nav-btn">📝 롤링페이퍼</a>
+</body>
+</html>

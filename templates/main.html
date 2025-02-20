@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생일 축하해!</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <h1>생일 축하해, 권여준!</h1>
+    <p class="message">애융의 얼굴 권여준의 생일을 축하합니다! 🎉🎂</p>
+
+    <!-- 로그인 상태에 따라 버튼 표시 -->
+    {% if session.get("authenticated") %}
+        <a href="{{ url_for('logout') }}" class="logout-btn">인증 파기</a>
+    {% else %}
+        <a href="{{ url_for('authentication', next=request.path) }}" class="logout-btn">인증</a>
+    {% endif %}
+
+
+
+    <div>
+        <!-- 떡볶이 케이크 -->
+        <img src="static/images/tteock_cake.png" alt="케이크" class="cake">
+    </div>
+
+    <!-- 페이지 전환 버튼 -->
+    <div>
+        <a href="/gallery" class="nav-btn">📸 갤러리 보기</a>
+        <a href="/rolling_paper" class="nav-btn">📝 롤링페이퍼</a>
+    </div>
+
+    <!-- 음악 버튼 -->
+    <button class="music-btn" onclick="playMusic()">축하 노래 시작 🎶</button>
+    <!-- 음악 멈춤 버튼 -->
+    <button class="music-btn" onclick="stopMusic()">축하 노래 끄기 ✖️</button>
+    
+    <audio id="happyBirthdaySong" src="static/song/song1.mp3"></audio>
+
+    <script>
+        // 음악 재생 함수
+        function playMusic() {
+            const music = document.getElementById('happyBirthdaySong');
+            music.play();
+        }
+
+        // 음악 멈추는 함수
+        function stopMusic() {
+            const music = document.getElementById('happyBirthdaySong');
+            music.pause();
+            music.currentTime = 0; // 음악을 처음으로 되돌림
+        }
+    </script>
+</body>
+</html>

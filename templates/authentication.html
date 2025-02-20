@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인증 페이지</title>
+    <link rel="stylesheet" href="/static/css/authentication.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h1>갤러리 접근을 위해 <br>인증하세요!</h1>
+        <form method="POST">
+            <input type="password" name="password" placeholder="학번 입력" required>
+            <input type="hidden" name="next" value="{{ request.args.get('next', '/') }}">
+            <button type="submit">확인</button>
+        </form>        
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+    <div class="to-main">
+        <a href="/">메인 화면으로</a>
+    </div>
+</body>
+</html>

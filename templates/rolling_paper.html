@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롤링페이퍼</title>
+    <link rel="stylesheet" href="/static/css/rolling_paper.css">
+</head>
+<body>
+    <h1>🎉 권여준만을 위한 우리의 롤링페이퍼~ 🎉</h1>
+
+    <img class="left" src="/static/images/larrow.png" alt="이전" onclick="prevMessage()">
+    <div class="rolling">
+        <div class="name">
+            <h4 id="name"></h4>  <!-- 이름 -->
+        </div>
+        <div class="content">
+            <p id="content"></p> <!-- 내용 -->
+        </div>
+    </div>
+    <img class="right" src="/static/images/rarrow.png" alt="이전" onclick="nextMessage()">
+
+    <a href="/" class="nav-btn">메인 페이지로 돌아가기</a>
+    <a href="/gallery" class="nav-btn">📸 갤러리 보기</a>
+    
+
+    <script>
+        const messages = {{ messages | tojson | safe }};
+        let currentIndex = 0;
+
+        function updateMessage() {
+            document.getElementById("name").innerText = messages[currentIndex]["이름"];
+            document.getElementById("content").innerHTML = messages[currentIndex]["내용"];
+        }
+
+        function prevMessage() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateMessage();
+            }
+            if (currentIndex == 0){
+                currentIndex = messages.length - 1;
+                updateMessage();
+            }
+        }
+
+        function nextMessage() {
+            if (currentIndex < messages.length - 1) {
+                currentIndex++;
+                updateMessage();
+            }
+
+            if (currentIndex == messages.length - 1) {
+                currentIndex = 0;
+                updateMessage();
+            }
+        }
+
+        window.onload = updateMessage;
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    position: relative;  /* body에 상대 위치 추가 */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.rolling {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;  /* 각 div 사이에 간격 추가 */
+    width: 80%;
+    margin: 0 auto;
+}
+
+.name {
+    font-size: 50px;
+    text-align: center;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.content {
+    width: 1000px;
+    height: 500px;
+    background-color: rgb(250, 253, 255);
+    font-size: 25px;
+    text-align: left;
+    color: #2c3e50;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 20px;  /* 내부 여백 추가 */
+    box-sizing: border-box;  /* padding을 포함하여 크기 유지 */
+    border-radius: 20px;  /* 모서리를 둥글게 (선택사항) */
+}
+
+img {
+    width: 70px;  /* 이미지 크기 설정 */
+    height: auto;  /* 비율 유지 */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+img:hover{
+    opacity: 0.6;
+}
+
+.left {
+    position: absolute;  /* 왼쪽 버튼을 화면에 고정 */
+    top: 50%;  /* 버튼을 세로 중앙에 배치 */
+    left: 80px;  /* 왼쪽에 배치 */
+    transform: translateY(-50%);
+}
+
+.right {
+    position: absolute;  /* 오른쪽 버튼을 화면에 고정 */
+    top: 50%;  /* 버튼을 세로 중앙에 배치 */
+    right: 80px;  /* 오른쪽에 배치 */
+    transform: translateY(-50%);
+}
+
+h4, p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.nav-btn {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: inline-block;
+    background-color: #4caf50;
+    color: white;
+    padding: 15px 30px;
+    margin: 20px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
+}
